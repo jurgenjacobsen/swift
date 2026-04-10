@@ -1,40 +1,34 @@
 ![Repository Banner](/assets/banner.png)
 
-[![CI and Quality](https://github.com/jurgenjacobsen/sparrow/actions/workflows/ci-quality.yml/badge.svg)](https://github.com/jurgenjacobsen/sparrow/actions/workflows/ci-quality.yml)
-[![wakatime](https://wakatime.com/badge/user/010adc07-6382-419f-87bc-0b3f507ee495/project/583ab4c3-73e0-4dfa-a9e6-51738bc83e10.svg)](https://wakatime.com/badge/user/010adc07-6382-419f-87bc-0b3f507ee495/project/583ab4c3-73e0-4dfa-a9e6-51738bc83e10)
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/jurgenjacobsen/sparrow/main)
-![GitHub top language](https://img.shields.io/github/languages/top/jurgenjacobsen/sparrow)
-![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/ikihafjofjiggfflljmjacnpobejpgco)
-![Chrome Web Store Size](https://img.shields.io/chrome-web-store/size/ikihafjofjiggfflljmjacnpobejpgco)
+[![CI and Quality](https://github.com/jurgenjacobsen/swif/actions/workflows/ci-quality.yml/badge.svg)](https://github.com/jurgenjacobsen/swif/actions/workflows/ci-quality.yml)
+[![wakatime](https://wakatime.com/badge/user/010adc07-6382-419f-87bc-0b3f507ee495/project/a53a7130-77b9-4c12-a488-018078e20f4b.svg)](https://wakatime.com/badge/user/010adc07-6382-419f-87bc-0b3f507ee495/project/a53a7130-77b9-4c12-a488-018078e20f4b)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/jurgenjacobsen/swift/main)
+![GitHub top language](https://img.shields.io/github/languages/top/jurgenjacobsen/swift)
+![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/ddeehpcbffikdklaelcmnkckfogofjod)
+![Chrome Web Store Size](https://img.shields.io/chrome-web-store/size/ddeehpcbffikdklaelcmnkckfogofjod)
 
-# Sparrow - Reminder Manager
-A sleek Google Chrome extension for managing reminders.
+# Swift - QR Code Generator
+A lightweight Google Chrome extension that creates a QR code from the current tab URL and lets you edit the content instantly.
 
 ## Features
 
-✨ **Reminder Management**
-- Create, edit, and delete reminders
-- Set custom time intervals (minutes, hours, days, weeks)
-- Add emoji icons to reminders for quick visual identification
-- Set reminders to repeat infinitely or a specific number of times
-- Enable/disable reminders without deleting them
+✨ **Instant QR From Current Tab**
+- Opens with the active tab URL prefilled
+- Generates a QR code immediately when the popup opens
+- Supports fallback handling when a tab URL is unavailable
 
-🔔 **Notifications**
-- Desktop notifications for reminder triggers
-- Optional notification sounds
-- Click notifications to open the extension
+✍️ **Live Editing**
+- Edit text or paste any URL in the input field
+- QR code regenerates in real time as you type
 
-⚙️ **Settings**
-- Toggle desktop notifications on/off
-- Toggle notification sounds on/off
-- Settings persist across sessions
+🧰 **Quick Actions**
+- Use Current Tab button to refresh with the active tab URL
+- Download PNG button to save the generated QR code image
 
 🎨 **User Interface**
-- Clean, minimal design with neutral colors
-- Small rounded corners (8px) for a modern look
-- Golden accent color (#F7BE48) for interactive elements
-- Smooth animations and transitions
-- Responsive layout
+- Clean card-style popup with subtle gradients
+- Small rounded corners for all controls
+- Compact layout designed for quick copy/share workflows
 
 ## Installation
 
@@ -42,7 +36,7 @@ A sleek Google Chrome extension for managing reminders.
 2. Navigate to `chrome://extensions/` in Chrome
 3. Enable "Developer mode" (toggle in top right)
 4. Click "Load unpacked"
-5. Select the `sparrow` folder
+5. Select the `swift` folder
 6. The extension icon will appear in your toolbar
 
 ## Building
@@ -70,18 +64,21 @@ npm run bundle
 ## Project Structure
 
 ```
-sparrow/
+swift/
 ├── assets/
 │   └── icon.png              # Extension icon
 ├── scripts/
-│   ├── background.js         # Service worker (compiled from TS)
-│   ├── offscreen.js          # Audio playback handler (compiled from TS)
+│   ├── background.js         # Placeholder service worker output (currently unused)
+│   ├── offscreen.js          # Placeholder offscreen output (currently unused)
 │   └── popup.js              # Popup logic (compiled from TS)
+├── node_modules/
+│   └── qrcode-generator/     # QR rendering runtime loaded by popup.html
 ├── src/
-│   ├── popup.ts              # Main UI logic and event handlers
-│   └── (other TypeScript files)
+│   ├── popup.ts              # Popup logic: tab URL lookup, QR render, download
+│   ├── background.ts         # Placeholder source (currently unused)
+│   └── offscreen.ts          # Placeholder source (currently unused)
 ├── style/
-│   └── popup.css             # Neutral UI styling with golden accent
+│   └── popup.css             # Popup styling
 ├── popup.html                # Main extension popup
 ├── offscreen.html            # Offscreen document for audio playback
 ├── manifest.json             # Extension configuration
@@ -94,101 +91,71 @@ sparrow/
 
 ### popup.html
 The main UI of the extension displayed when you click the toolbar icon. Features:
-- Header with Sparrow title and settings button
-- Reminders list (empty state when no reminders)
-- Add reminder button
-- Settings modal for notification preferences
-- Reminder modal for adding/editing reminders
+- Header with Swift title
+- QR canvas preview area
+- Editable input for URL/text content
+- Action buttons for tab refresh and PNG download
+- Script inclusion for QR runtime and popup logic
 
 ### style/popup.css
-Comprehensive styling with:
-- CSS custom properties for consistent theming
-- Golden accent color (#F7BE48)
-- Small rounded corners (8px main, 4px buttons)
-- Smooth transitions and hover effects
-- Scrollbar styling
-- Modal styling
-- Form input styling with focus states
+Popup styling includes:
+- CSS custom properties for theme colors
+- Card container and visual hierarchy
+- Small rounded corners across controls
+- Action button states and readable status text
 
 ### src/popup.ts
 Main UI logic including:
-- State management for reminders and settings
-- Event listeners for all user interactions
-- Modal management (open/close)
-- Reminder CRUD operations (Create, Read, Update, Delete)
-- Form validation
-- Emoji picker functionality
-- Local storage integration
+- Active tab URL retrieval with Chrome tabs API
+- QR code generation and rendering to canvas
+- Live input event handling for instant regeneration
+- Use Current Tab and Download PNG actions
+- Error and unavailable URL status handling
 
 ### scripts/background.js
-Service Worker handling:
-- Chrome alarms scheduling based on reminder intervals
-- Desktop notifications when alarms trigger
-- Statistics tracking (repeat count)
-- Settings persistence
-- Notification sound trigger
+Compiled output from placeholder source. Not used by current QR popup flow.
 
 ### scripts/offscreen.js
-Offscreen document script for:
-- Playing notification sounds via Web Audio API
-- Creating beep sound (800 Hz, 0.3s duration)
-- Audio context management
+Compiled output from placeholder source. Not used by current QR popup flow.
 
 ## Usage
 
-### Creating a Reminder
+### Generate QR From Current Tab
 
-1. Click the Sparrow icon in your toolbar
-2. Click "+ Add Reminder" button
-3. Fill in the form:
-   - **Icon**: Click the input and select an emoji from the picker
-   - **Name**: Enter a descriptive name for the reminder
-   - **Time Interval**: Set value and unit (minutes/hours/days/weeks)
-   - **Repeat**: Choose infinite or set a specific number of times
-4. Click "Save" to create the reminder
+1. Click the Swift icon in your toolbar
+2. The popup automatically reads the active tab URL
+3. A QR code is generated instantly
 
-### Managing Reminders
+### Edit QR Content
 
-- **Toggle**: Click the ✓ or ○ button to enable/disable a reminder
-- **Edit**: Click the ✎ button to modify reminder settings
-- **Delete**: Click the 🗑️ button to remove a reminder
-- **View**: See icon, name, interval, and repeat status on each reminder
+1. Change the text in the QR content input field
+2. The canvas updates in real time
 
-### Settings
+### Quick Actions
 
-1. Click the ⚙️ button in the header
-2. Toggle preferences:
-   - Enable/disable desktop notifications
-   - Enable/disable notification sounds
-3. Click "Save" to apply changes
+1. Click Use Current Tab to reload the active tab URL
+2. Click Download PNG to save the generated QR image
 
 ## Colors & Design
 
-The extension uses a neutral, professional color scheme:
+The popup uses a clean, compact visual style:
 
-- **Primary Background**: #ffffff (white)
-- **Secondary Background**: #f8f9fa (light gray)
-- **Text Primary**: #222222 (dark gray)
-- **Text Secondary**: #65676b (medium gray)
-- **Accent Color**: #F7BE48 (golden yellow)
-- **Accent Hover**: #f0b13a (darker golden)
-- **Border Color**: #ccc (light gray)
-
-All UI elements feature small rounded corners (8px for main containers, 4px for buttons and inputs).
+- Soft background gradient
+- Clear text hierarchy for title, subtitle, and status
+- Subtle borders and shadows
+- Small rounded corners on input, buttons, and QR card
 
 ## Browser Compatibility
 
-- Chrome 88+ (due to alarms API and offscreen API requirements)
+- Chrome 88+
 - Chromium-based browsers (Edge, Brave, etc.)
 
 ## Permissions
 
 The extension requires these permissions:
 
-- `alarms` - To schedule reminder triggers
-- `notifications` - To show desktop notifications
-- `storage` - To persist reminders and settings
-- `offscreen` - To play notification sounds
+- `tabs` - To read the active tab URL for QR generation
+- `activeTab` - To access the currently focused tab when popup opens
 
 ## Development
 
@@ -211,20 +178,20 @@ npm run watch    # Watch mode for development
 
 1. Go to `chrome://extensions/`
 2. Enable "Developer mode"
-3. Click "Inspect views" on the Sparrow extension
+3. Click "Inspect views" on the Swift extension
 4. Use the DevTools console to debug
 
 ## Troubleshooting
 
-**Reminders not triggering?**
-- Check that desktop notifications are enabled in extension settings
-- Verify the reminder is not disabled
-- Check browser notification permissions for Chrome
+**QR not generating?**
+- Ensure `npm install` has been run so `node_modules/qrcode-generator` exists
+- Reload the extension in `chrome://extensions/` after rebuilding
+- Check popup console errors via Inspect views
 
-**No sound on notifications?**
-- Verify "Enable Notification Sounds" is toggled on in settings
-- Check system volume is not muted
-- Some systems may require additional audio permissions
+**Current tab URL not loading?**
+- Some restricted pages (for example `chrome://` pages) may not expose a usable URL
+- Switch to a regular website tab and click Use Current Tab
+- Confirm extension permissions are enabled
 
 **Extension not showing?**
 - Ensure the extension is enabled in `chrome://extensions/`
@@ -240,4 +207,4 @@ jurgenjacobsen
 
 ## Repository
 
-https://github.com/jurgenjacobsen/sparrow
+https://github.com/jurgenjacobsen/swift
