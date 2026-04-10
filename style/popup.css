@@ -1,0 +1,144 @@
+:root {
+  --bg: #f2f4f7;
+  --panel: #ffffff;
+  --text: #17212f;
+  --subtle: #667386;
+  --border: #d8dde5;
+  --accent: #2489d8;
+  --accent-hover: #1f77bc;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 320px;
+  min-height: 390px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(165deg, #f8fafc 0%, var(--bg) 100%);
+  color: var(--text);
+}
+
+.container {
+  padding: 14px;
+  margin: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--panel);
+  box-shadow: 0 8px 24px rgba(20, 34, 56, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.pill {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  border: 1px solid #bfddf6;
+  border-radius: 999px;
+  padding: 3px 8px;
+  background: #ebf5fe;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--subtle);
+  font-size: 12px;
+}
+
+.qr-wrapper {
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: #f9fbfd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+#qrCanvas {
+  width: 220px;
+  height: 220px;
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+}
+
+.input-label {
+  font-size: 12px;
+  color: var(--subtle);
+}
+
+#qrInput {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 9px 10px;
+  font-size: 13px;
+  outline: none;
+  background: #ffffff;
+  transition: border-color 0.15s ease;
+}
+
+#qrInput:focus {
+  border-color: var(--accent);
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.actions button {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #ffffff;
+  color: var(--text);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.actions button:hover {
+  border-color: #b7c1ce;
+  background: #f7f9fc;
+}
+
+#downloadBtn {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+#downloadBtn:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.status {
+  margin: 0;
+  min-height: 16px;
+  font-size: 12px;
+  color: var(--subtle);
+}

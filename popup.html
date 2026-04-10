@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Swift</title>
+		<link rel="stylesheet" href="style/popup.css" />
+	</head>
+	<body>
+		<main class="container">
+			<header class="header">
+				<h1>Swift</h1>
+				<span class="pill">QR</span>
+			</header>
+			<p class="subtitle">Generate and edit a QR code instantly</p>
+
+			<div class="qr-wrapper">
+				<canvas id="qrCanvas" width="220" height="220" aria-label="QR code"></canvas>
+			</div>
+
+			<label for="qrInput" class="input-label">QR content</label>
+			<input
+				id="qrInput"
+				type="text"
+				autocomplete="off"
+				spellcheck="false"
+				placeholder="Enter text or URL"
+			/>
+
+			<div class="actions">
+				<button id="useTabBtn" type="button">Use Current Tab</button>
+				<button id="downloadBtn" type="button">Download PNG</button>
+			</div>
+
+			<p id="status" class="status" role="status" aria-live="polite"></p>
+		</main>
+
+		<script src="node_modules/qrcode-generator/dist/qrcode.js"></script>
+		<script src="scripts/popup.js"></script>
+	</body>
+</html>

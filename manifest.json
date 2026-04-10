@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Swift",
+  "version": "1.0.0",
+  "description": "Generate a QR code for the current tab and edit the text instantly.",
+  "permissions": [
+    "tabs",
+    "activeTab"
+  ],
+  "icons": {
+    "16": "assets/icon.png",
+    "48": "assets/icon.png",
+    "128": "assets/icon.png"
+  },
+  "action": {
+    "default_title": "Swift",
+    "default_popup": "popup.html",
+    "default_icon": "assets/icon.png"
+  }
+}

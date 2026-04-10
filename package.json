@@ -1,0 +1,29 @@
+{
+  "name": "swift",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "bundle": "powershell -ExecutionPolicy Bypass -File ./automation/package.ps1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jurgenjacobsen/swift.git"
+  },
+  "keywords": [],
+  "author": "jurgenjacobsen",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jurgenjacobsen/swift/issues"
+  },
+  "homepage": "https://github.com/jurgenjacobsen/swift#readme",
+  "dependencies": {
+    "qrcode-generator": "^2.0.4"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.40",
+    "typescript": "^6.0.2"
+  }
+}
