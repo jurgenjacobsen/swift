@@ -1,6 +1,6 @@
 ![Repository Banner](/assets/banner.png)
 
-[![CI and Quality](https://github.com/jurgenjacobsen/swif/actions/workflows/ci-quality.yml/badge.svg)](https://github.com/jurgenjacobsen/swif/actions/workflows/ci-quality.yml)
+[![CI and Quality](https://github.com/jurgenjacobsen/swift/actions/workflows/ci-quality.yml/badge.svg)](https://github.com/jurgenjacobsen/swift/actions/workflows/ci-quality.yml)
 [![wakatime](https://wakatime.com/badge/user/010adc07-6382-419f-87bc-0b3f507ee495/project/a53a7130-77b9-4c12-a488-018078e20f4b.svg)](https://wakatime.com/badge/user/010adc07-6382-419f-87bc-0b3f507ee495/project/a53a7130-77b9-4c12-a488-018078e20f4b)
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/jurgenjacobsen/swift/main)
 ![GitHub top language](https://img.shields.io/github/languages/top/jurgenjacobsen/swift)
